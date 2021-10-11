@@ -19,5 +19,11 @@ describe 'Score Report' do
     expect(score_report.generate_report).to eq("Test 1:\nGreen: 1\nAmber: 1\nRed: 0")
   end
 
+  it '#generate_report returns 1 green result, 1 amber result, 1 red result' do 
+    score_report = Score_Report.new 
+    score_report.add_scores("Green, Amber, Red")
+    expect(score_report.generate_report).to eq("Test 1:\nGreen: 1\nAmber: 1\nRed: 1")
+  end
+
 end
 
