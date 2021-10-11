@@ -5,12 +5,27 @@ class Score_Report
   end
 
   def add_scores(test_scores)
-    @scores.push(test_scores)
+    @scores.push(test_scores.split(', '))
+    
   end
 
   def generate_report
-    "Test 1:\nGreen: 1\nAmber: 0\nRed: 0"
+    green_count = 0
+    amber_count = 0
+    @scores[0].each { |colour| 
+      if colour == "Green"
+        green_count += 1
+      elsif colour == "Amber"
+        amber_count += 1
+      end
+      }
+
+
+    "Test 1:\nGreen: #{green_count}\nAmber: #{amber_count}\nRed: 0"
   end 
+
+
+  
 
 end 
 
